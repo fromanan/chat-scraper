@@ -15,9 +15,25 @@
       "128": "icons/128.png"
     }
   },
+  "permissions": ["activeTab", "downloads", "scripting"],
+  "host_permissions": [
+    "https://*.facebook.com/*",
+    "https://*.messenger.com/*",
+    "https://*.fbcdn.net/*",
+    "https://*.fbsbx.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://www.messenger.com/*"],
+      "matches": [
+        "https://messenger.com/*",
+        "https://www.messenger.com/*",
+        "https://facebook.com/messages",
+        "https://facebook.com/messages/*",
+        "https://www.facebook.com/messages",
+        "https://www.facebook.com/messages/*",
+        "https://web.facebook.com/messages",
+        "https://web.facebook.com/messages/*"
+      ],
       "js": ["main.js"]
     }
   ],
