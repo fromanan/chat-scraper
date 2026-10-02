@@ -24,7 +24,7 @@ export function writeJSONToNewWindow(jsonObject: any) {
   const jsonString = JSON.stringify(jsonObject, null, 2);
   const jsonBlob = new Blob([jsonString], { type: "application/json" });
   const url = URL.createObjectURL(jsonBlob);
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 
   setTimeout(() => {
     URL.revokeObjectURL(url);
@@ -49,7 +49,11 @@ export function downloadJSONFile(rawFilename: string, jsonObject: any) {
 export function openHTMLInNewWindow(html: string) {
   const blob = new Blob([html], { type: "text/html" });
   const url = URL.createObjectURL(blob);
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
+
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 5000);
 }
 
 export function downloadTextAsFile(rawFilename: string, text: string) {

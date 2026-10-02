@@ -5,6 +5,9 @@
     "strict": true,
     "outDir": "./dist",
     "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "lib": ["DOM", "ES2020"],
     "types": ["chrome"]
   },
